@@ -110,6 +110,15 @@ local plugins = {
     end
   },
   {
+    -- Copilot plugin
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    config = function()
+      require "custom.configs.copilot"
+    end,
+    event = "InsertEnter",
+  },
+  {
     "hrsh7th/nvim-cmp",
     opts = function()
       local M = require "plugins.configs.cmp"
@@ -187,28 +196,22 @@ local plugins = {
       "nvim-neotest/neotest-vim-test",
       "nvim-neotest/neotest-plenary"
     },
---    opts = {
---      adapters = {
---        require("neotest-python")({
---          dap = { justMyCode = false },
---        }),
---        require("neotest-plenary"),
---        require("neotest-vim-test")({
---          ignore_file_types = { "python", "vim", "lua" },
---        }),
---        require('rustaceanvim.neotest')
---      }
---    },
-    config = function(_, opts)
-      require("neotest-python").setup()
-      require('rustaceanvim.neotest').setup()
-      require("neotest-plenary").setup()
-      require("neotest-vim-test").setup()
-      local neotest = require("neotest").setup(opts)
-      neotest.adapters = {
-        require('rustaceanvim.neotest')
-
-      }
+    --    opts = {
+    --    },
+    config = function()
+      local neotest = require("neotest").setup(
+        {
+          adapters = {
+            require("neotest-python")({
+              dap = { justMyCode = false },
+            }),
+            require("neotest-plenary"),
+            require("neotest-vim-test")({
+              ignore_file_types = { "python", "vim", "lua" },
+            }),
+            require('rustaceanvim.neotest')
+          }
+        })
     end,
   },
 }
