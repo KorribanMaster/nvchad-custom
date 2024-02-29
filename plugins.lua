@@ -57,6 +57,8 @@ local plugins = {
         "debugpy",
         "mypy",
         "ruff",
+        "marksman",
+        "markdownlint",
       },
     },
   },
