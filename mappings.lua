@@ -45,10 +45,11 @@ M.general = {
       "<cmd> NvimTreeToggle <CR>", "Nvim Tree Toggle"
     },
     ["<leader>/"] = { "<cmd> Telescope live_grep <CR>", "Search String" },
+    ["<leader>fr"] = { "<cmd> Telescope oldfiles <CR>", "Recent Files" },
     -- Buffers
-    ["<leader>bd"] = { "<cmd> bdelete", "Close buffer" },
-    ["<leader>bn"] = { "<cmd> badd", "Close buffer" },
-    ["<leader>bb"] = { "<cmd> Telescope buffers", "Open Buffers" },
+    ["<leader>bd"] = { ":bd<CR>", "Close buffer" },
+    ["<leader>bn"] = { "<cmd> badd<CR>", "Close buffer" },
+    ["<leader>bb"] = { "<cmd> Telescope buffers<CR>", "Open Buffers" },
     -- Better window navigation
     ["<C-h>"] = { "<C-w>h", "" },
     ["<C-j>"] = { "<C-w>j", "" },
@@ -65,6 +66,7 @@ M.general = {
     -- 
     ["<leader>fs"] = { ":w<CR>", "Save file"},
     ["<leader>fS"] = { ":wa<CR>", "Save files"},
+    ["<leader>qq"] = { ":qa<CR>", "Close all"},
   },
   i = {
     ["jk"] = { "<ESC>", "escape insert mode", opts = { nowait = true } },
